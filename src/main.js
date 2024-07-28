@@ -17,8 +17,7 @@ function handleSubmitBtn(event) {
 
     let searchWord = input.value.trim();
 
-    setTimeout(() => {
-        searchGalleryQuery(`${searchWord}`)
+    searchGalleryQuery(`${searchWord}`)
             .then((data) => {
                 if (data.total === 0 || searchWord === "") { 
                     iziToast.error({
@@ -31,6 +30,6 @@ function handleSubmitBtn(event) {
                 else { createImages(data) }
                 loader.classList.add('hidden');
             })
-    }, 1750)
+    
     form.reset();
 }
